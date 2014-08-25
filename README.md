@@ -144,16 +144,16 @@ of bash on a list of files. For example, you might want to set up a pipe of comm
 
 Let me explain what happens there part by part:
 
-1.`for file in ./*.php`: make a list of all the files ending in “.php” in the current directory, and for each of them, 
+*  `for file in ./*.php`: make a list of all the files ending in “.php” in the current directory, and for each of them, 
 run the following code with the variable “$file” set to the filename.
 
-2.`do … done`: indicates the beginning and end of the code inside the for loop. Note that both of them have to start on 
+*  `do … done`: indicates the beginning and end of the code inside the for loop. Note that both of them have to start on 
 a new line, which is why the semicolons are there. They count for starting a new line.
 
-3.`echo -n “$file”:\ `: print the filename, followed by a colon and a space, but not a newline (the “-n” option suppresses
+* `echo -n “$file”:\ `: print the filename, followed by a colon and a space, but not a newline (the “-n” option suppresses
 the default extra newline). The backslash makes sure the space is actually printed and not eaten away by bash.
 
-4.`grep ‘while’ “$file” | wc -l`: grep reads the file and prints only the lines containing the word 
+* `grep ‘while’ “$file” | wc -l`: grep reads the file and prints only the lines containing the word 
 `while`. These lines are piped to
 `“wc -l”`, which counts the amount of lines (word count with option lines).
 
@@ -236,7 +236,8 @@ To get back to the screen terminals you opened before, execute “screen -R” f
 exit all terminals in it as you would normally exit terminals (Ctrl+D).
 
 For more information about screen, read its man page by executing `man screen` . It’s a very powerful tool that even 
-allows multiple people to use a single terminal at the same time!
+allows multiple people to use a single terminal at the same time! 
 
+For example: type `man ls`, [go to search informantion about ls](http://unixhelp.ed.ac.uk/CGI/man-cgi?ls) 
 
 
