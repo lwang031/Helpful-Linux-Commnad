@@ -210,7 +210,7 @@ ssh into the server:
 
     ssh -D <port number> user@remotehost
 
-The -D option tells ssh to set up a dynamic port forward on local port <port number>. I like to use port number 1337,
+The `-D` option tells ssh to set up a dynamic port forward on local port <port number>. I like to use port number 1337,
 but almost any port between 1024 and 65535 will do. When you’ve logged in on the remote server, you can configure your 
 browser to use localhost with the port number you specified earlier as a SOCKS proxy (SOCKS versions 4 and 5 are both 
 supported). This setting is usually found in the same place as the other options for using a web proxy. In Firefox, 
@@ -225,15 +225,15 @@ execute a different command without opening a second ssh connection or (temporar
 Both annoyances melt away when you use screen.
 
 The screen command allows you to run multiple terminal sessions inside a single terminal session, and manage the multiple
-sessions using hotkeys. Try it! Just execute “screen” in your terminal (install it first if necessary) and see an empty 
-terminal opening. Now execute the command “sleep 9999″. This will take quite long and block your terminal. However, 
-if you press Ctrl+A, let go of the keys, and then press C, you will get a fresh new terminal ready to take commands. 
+sessions using hotkeys. Try it! Just execute `screen` in your terminal (install it first if necessary) and see an empty 
+terminal opening. Now execute the command `sleep 9999`. This will take quite long and block your terminal. However, 
+if you press `Ctrl+A`, let go of the keys, and then press `C`, you will get a fresh new terminal ready to take commands. 
 The sleep command on the other terminal keeps running without being interrupted. To cycle between the two open terminals,
-use Ctrl+A N for next and Ctrl+A P for previous (remember to let go of all keys after pressing Ctrl+A). Finally, to shut
-down screen without interrupting the commands that are running, press Ctrl+A D for detach. You will return to your 
+use `Ctrl+A N` for next and `Ctrl+A P` for previous (remember to let go of all keys after pressing `Ctrl+A`). Finally, to shut
+down screen without interrupting the commands that are running, press `Ctrl+A D` for detach. You will return to your 
 original terminal, and if it’s an ssh session, you can exit it without interrupting the commands running in screen. 
-To get back to the screen terminals you opened before, execute “screen -R” for reattach. To exit a screen session, just 
-exit all terminals in it as you would normally exit terminals (Ctrl+D).
+To get back to the screen terminals you opened before, execute `screen -R` for reattach. To exit a screen session, just 
+exit all terminals in it as you would normally exit terminals `Ctrl+D`.
 
 For more information about screen, read its man page by executing `man screen` . It’s a very powerful tool that even 
 allows multiple people to use a single terminal at the same time! 
