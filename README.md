@@ -6,19 +6,16 @@ Note: these tricks apply to bash, which is the default shell on most Linux syste
 
 ## 1. Quoting
 
-Bash has many special characters such as `* & ; | { ! < [ #`. (Sometimes the characters are not to be interpreted in
- any special way, but just to be passed unmodified to some command. A commonly used example:
+Bash has many special characters such as `* & ; | { ! < [ #` (you see, all are special, don't think you know them). 
+A commonly used example:
 
     find . -iname '*.conf'
 
-Notice the single quotes around "*.conf". What if I forgot those? Bash would interpret the *.conf as a glob expression 
-and expand it to all files ending in .conf in the current directory. This could prevent find from looking for all 
-.conf files in subdirectories, causing unexpected results. Remember: we should always quote anything that 
+Notice the single quotes around `*.conf`. What would happen without it? Bash would interpret the `*.conf` as a glob expression and expand it to all files ending in `.conf` in the current directory. (we don't want this to happen!) This could prevent from looking for all `.conf` files in subdirectories. Remember: we should always quote anything that 
 might contain special characters.
 
-Note: only single quotes prevent every character from being interpreted; double quotes still allow bash to 
-interpret some characters. When working with variables, double quotes come in handy to prevent word splitting. 
-This is often used in scripting. An example:
+It need to be known that only single quotes can prevent every character from being interpreted; double quotes still allow bash to interpret some characters. On the other hand, when working with variables, double quotes come in handy to prevent word splitting(it's useful!), which is often used in scripting. 
+An example:
 
     #!/bin/bash
     # This script renames a file to lowercase
@@ -34,11 +31,9 @@ name.txt unspacedname.txt`. In other words, mv will try to move two files, `spac
 and fail because moving multiple files to a single destination is only allowed when the destination is a directory. 
 Putting double quotes around “$filename” solves this issue.
 
-So you see, quoting is a good habit to prevent your commands and scripts from doing unexpected things. Two final notes:
-you can’t quote variables using single quotes, because the dollar sign loses its special meaning between single quotes,
-and if you ever need to use a literal single quote in some command, you can do so by putting it between double quotes. 
+So you see, quoting is a good habit to prevent your commands and scripts from doing unexpected things. Important message: you can’t quote variables using single quotes, because the dollar sign loses its special meaning between single quotes, and if you ever need to use a literal single quote in some command, you can do so by putting it between double quotes. 
 
-## 2. Process substitution
+## 2. Process Substitution
 
 Think of showing differences of two commands quickly? One way is to redirect the output to a temporary file 
 for both of them, and diff those files, like this:
@@ -93,18 +88,26 @@ using the `-exec` option of find.
 
 ## 4. Ctrl+U and Ctrl+Y
 
-Do you know that moment when you’re typing a long command, and then suddenly realize you need to execute something else 
-first? Especially when working over an SSH connection, when you can’t easily open a second terminal on the same machine,
-everyone hate this! Fortunately, there's a way to fix it. Ensure cursor is at the end of your current command 
-`shortcut: Ctrl+E`, press `Ctrl+U` to get a clean line, type the other command you need to execute first, execute it, 
-then press `Ctrl+Y` and voila! Your long command is back on the line. No mouse needed for copying, just quick hotkeys.
+Do you know that moment when you’re typing a long command.
+
+    cd 1/2/3/4/5/6/7....(# represents super long names "1 = safjslfjsaflfj") 
+and then suddenly realize you need to execute something else 
+first (Oh, what's the next path...). Everyone hate this! Fortunately, there's a way to fix it. Ensure cursor is at the end of your current command `shortcut: Ctrl+E`, press `Ctrl+U` to get a clean line,
+
+    ^E (copy the current command)
+    ^U (clear the current command)
+    ls (check the direc you want)
+    ^Y (paste the older command)
+    $: cd 1/2/3/4/5/6/7..... (Yeah, the command is back)
+type the other command you need to execute first, execute it, then press `Ctrl+Y` and amazing! Your long command is back on the line. No mouse needed for copying, just quick hotkeys.
 Great tricks!!
 
 ## 5. A simple calculator
 
 Sometimes you need to do a calculation that is too much for your brain. When you’re working in a graphic environment, 
-you might just fire up kcalc or gcalctool, but tools like that may not always be available or easy to find. Fortunately, 
-you can do basic calculations within bash itself. For example:
+you might just fire up kcalc or gcalctool, but tools like that may not always be available or easy to find. Fortunately,
+you can do basic calculations within bash itself. 
+For example:
 
     echo $((3*37+12)) # Outputs 123
     echo $((2**16-1)) # Two to the power of sixteen minus one; outputs 65535
@@ -113,13 +116,14 @@ you can do basic calculations within bash itself. For example:
 
 `$((something))` also allows bitwise operations (what?!), and as such it interprets the `^` as a bitwise 
 operator. That’s why `**` means  “the power of”. The syntax also supports showing the decimal equivalent of a 
-hexadecimal or octal number. Here’s an example:
+hexadecimal or octal number. 
+Here’s an example:
 
     echo $((0xdeadbeef)) # Outputs 3735928559
     echo $((0127)) # Outputs 87
 
-For more information, read the bash man page (always a good choice, you can do it on both terminal or online) using `man bash` and search 
-using `/` for “arithmetic evaluation”. If you want to do floating point calculations, you can use `bc`:
+For more information, read the bash man page (always a good choice, you can do it on both terminal or online) using `man bash` and search using `/` for “arithmetic evaluation”. If you want to do floating point calculations, 
+you can use `bc`:
 
     echo ‘scale=12; 2.5*2.5′ | bc # Outputs 6.25
     echo ‘scale=12; sqrt(14)’ | bc # Outputs 3.741657386773
