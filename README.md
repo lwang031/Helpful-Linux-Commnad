@@ -1,13 +1,13 @@
 #Using Linux command easier
 
-
-
 The 5 tricks people should know about linux command.
 Note: these tricks apply to bash, which is the default shell on most Linux systems.
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
-## 1. Quoting
+## 1. Special characters (need to know)
+
+![special: need to know](http://blog.zeronana.info/katsuo/wp-content/uploads/2011/05/facebook_smileys.jpg)
 
 Bash has many special characters such as `* & ; | { ! < [ #` (you see, all are special, don't think you know them). 
 A commonly used example:
@@ -37,6 +37,8 @@ Putting double quotes around “$filename” solves this issue.
 So you see, quoting is a good habit to prevent your commands and scripts from doing unexpected things. Important message: you can’t quote variables using single quotes, because the dollar sign loses its special meaning between single quotes, and if you ever need to use a literal single quote in some command, you can do so by putting it between double quotes. 
 
 ## 2. Process Substitution
+
+![efficiency, all I care](http://1funny.com/wp-content/uploads/2009/07/efficient-truck-transport.jpg)
 
 Think of showing differences of two commands quickly? One way is to redirect the output to a temporary file 
 for both of them, and diff those files, like this:
@@ -69,13 +71,15 @@ disappears.
 
 ## 3. The xargs command
 
+![pipe](http://s2.quickmeme.com/img/22/22ef8cbb2e7a7f12e74e84410d45cc4472f53326606bfb04fc06a6a139ad2bba.jpg)
+
+![pipe2](http://s2.quickmeme.com/img/3a/3a9d6b1156b541478db586f6b0b2843bd4da082a8f26b399e5b658ea8811b7f4.jpg)
+
 Whenever you want to execute a command on multiple files, or for every line of a certain file, xargs is the first tool 
 to look at. Here’s an example:
 
     find . -iname ‘*.php’ -print0 | xargs -0 svn add
-Anyone who has ever worked with a version control system like svn probably knows the annoyance of having to svn add 
-every newly created code file after a few hours of editing. This command does it for you in an instant. How does it 
-work?
+A version control system like svn probably annoys of having to add every newly created code file after a few hours of editing. This command does it for you in an instant. How does it work?
 
 `find . -iname *.php -print0` prints all files in the current directory `.` or its subdirectories that end in `.php` 
 and separates them by null characters `-print0`. The null character is never used in filenames, while a newline may be
@@ -90,6 +94,8 @@ To find out more about xargs, read the man page by executing `man xargs`. Using 
 using the `-exec` option of find. 
 
 ## 4. Ctrl+U and Ctrl+Y
+
+![backup always userful](http://www.yoyoshare.com/wp-content/uploads/images/culture/80.jpg)
 
 Do you know that moment when you’re typing a long command.
 
@@ -106,6 +112,8 @@ type the other command you need to execute first, execute it, then press `Ctrl+Y
 Great tricks!!
 
 ## 5. A simple calculator
+
+![calculator important sometimes](http://s8.postimg.org/i68lvk1b9/4840184_700b_v1.jpg)
 
 Sometimes you need to do a calculation that is too much for your brain. When you’re working in a graphic environment, 
 you might just fire up kcalc or gcalctool, but tools like that may not always be available or easy to find. Fortunately,
