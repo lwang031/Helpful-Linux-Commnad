@@ -36,7 +36,7 @@ Putting double quotes around “$filename” solves this issue.
 
 So you see, quoting is a good habit to prevent your commands and scripts from doing unexpected things. Important message: you can’t quote variables using single quotes, because the dollar sign loses its special meaning between single quotes, and if you ever need to use a literal single quote in some command, you can do so by putting it between double quotes. 
 
-## 2. Process Substitution
+## 2. Process Substitution: efficiency
 
 ![efficiency, all I care](http://1funny.com/wp-content/uploads/2009/07/efficient-truck-transport.jpg)
 
@@ -69,7 +69,7 @@ much shorter), only for two slightly more complicated commands. This technique c
 temporary file is needed, but it does have a limitation. The temporary file can only be read once before it 
 disappears. 
 
-## 3. The xargs command
+## 3. The xargs command: | pipe
 
 ![pipe](http://s2.quickmeme.com/img/22/22ef8cbb2e7a7f12e74e84410d45cc4472f53326606bfb04fc06a6a139ad2bba.jpg)
 
@@ -93,7 +93,7 @@ invoking it as few times as possible.
 To find out more about xargs, read the man page by executing `man xargs`. Using xargs is safer and more versatile than 
 using the `-exec` option of find. 
 
-## 4. Ctrl+U and Ctrl+Y
+## 4. Ctrl+U and Ctrl+Y: backup command
 
 ![backup always userful](http://www.yoyoshare.com/wp-content/uploads/images/culture/80.jpg)
 
