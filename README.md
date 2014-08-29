@@ -5,9 +5,12 @@ Note: these tricks apply to bash, which is the default shell on most Linux syste
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
+
+
+
 ## 1. Special characters (need to know)
 
-            ![special: need to know](http://blog.zeronana.info/katsuo/wp-content/uploads/2011/05/facebook_smileys.jpg)
+![special: need to know](http://blog.zeronana.info/katsuo/wp-content/uploads/2011/05/facebook_smileys.jpg)
 
 Bash has many special characters such as `* & ; | { ! < [ #` (you see, all are special, don't think you know them). 
 A commonly used example:
@@ -35,6 +38,10 @@ and fail because moving multiple files to a single destination is only allowed w
 Putting double quotes around “$filename” solves this issue.
 
 So you see, quoting is a good habit to prevent your commands and scripts from doing unexpected things. Important message: you can’t quote variables using single quotes, because the dollar sign loses its special meaning between single quotes, and if you ever need to use a literal single quote in some command, you can do so by putting it between double quotes. 
+
+
+
+
 
 ## 2. Process Substitution: efficiency
 
@@ -69,6 +76,9 @@ much shorter), only for two slightly more complicated commands. This technique c
 temporary file is needed, but it does have a limitation. The temporary file can only be read once before it 
 disappears. 
 
+
+
+
 ## 3. The xargs command: | pipe
 
 ![pipe](http://s2.quickmeme.com/img/22/22ef8cbb2e7a7f12e74e84410d45cc4472f53326606bfb04fc06a6a139ad2bba.jpg)
@@ -93,6 +103,9 @@ invoking it as few times as possible.
 To find out more about xargs, read the man page by executing `man xargs`. Using xargs is safer and more versatile than 
 using the `-exec` option of find. 
 
+
+
+
 ## 4. Ctrl+U and Ctrl+Y: backup command
 
 ![backup always userful](http://www.yoyoshare.com/wp-content/uploads/images/culture/80.jpg)
@@ -110,6 +123,10 @@ first (Oh, what's the next path...). Everyone hate this! Fortunately, there's a 
     $: cd 1/2/3/4/5/6/7..... (Yeah, the command is back)
 type the other command you need to execute first, execute it, then press `Ctrl+Y` and amazing! Your long command is back on the line. No mouse needed for copying, just quick hotkeys.
 Great tricks!!
+
+
+
+
 
 ## 5. A simple calculator
 
