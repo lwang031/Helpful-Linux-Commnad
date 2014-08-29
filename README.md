@@ -1,6 +1,7 @@
 #Using Linux command easier
 
-(http://www.chronic-illness.org/images/making_life_easier.jpg)
+!(http://www.chronic-illness.org/images/making_life_easier.jpg)
+
 The 5 tricks people should know about linux command.
 Note: these tricks apply to bash, which is the default shell on most Linux systems.
 
