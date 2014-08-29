@@ -1,6 +1,6 @@
 #Using Linux command easier
 
-![Make life easier](http://www.chronic-illness.org/images/making_life_easier.jpg)
+
 
 The 5 tricks people should know about linux command.
 Note: these tricks apply to bash, which is the default shell on most Linux systems.
@@ -137,5 +137,5 @@ uses that amount by default, but you can increase or decrease it as you like. Fi
 executing `man bc`(remember, always a good choice). It even supports more advanced mathematical functions, such as the arctangent or the natural 
 logarithm!
 
-
+![Make life easier](http://www.chronic-illness.org/images/making_life_easier.jpg)
 
