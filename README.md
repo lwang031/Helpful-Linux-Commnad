@@ -2,7 +2,7 @@
 The 5 tricks people should know about linux command.
 Note: these tricks apply to bash, which is the default shell on most Linux systems.
 
-
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 ## 1. Quoting
 
