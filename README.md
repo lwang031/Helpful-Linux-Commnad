@@ -7,7 +7,7 @@ Note: these tricks apply to bash, which is the default shell on most Linux syste
 
 ## 1. Special characters (need to know)
 
-![special: need to know](http://blog.zeronana.info/katsuo/wp-content/uploads/2011/05/facebook_smileys.jpg)
+            ![special: need to know](http://blog.zeronana.info/katsuo/wp-content/uploads/2011/05/facebook_smileys.jpg)
 
 Bash has many special characters such as `* & ; | { ! < [ #` (you see, all are special, don't think you know them). 
 A commonly used example:
